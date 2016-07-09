@@ -1,0 +1,97 @@
+[
+    {
+        "model": "website.service",
+        "pk": 1,
+        "fields":{
+            "name": "Porteiro"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 2,
+        "fields":{
+            "name": "Recepcionista"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 3,
+        "fields":{
+            "name": "Brigadista"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 4,
+        "fields":{
+            "name": "Agente de Limpeza"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 5,
+        "fields":{
+            "name": "Zelador"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 6,
+        "fields":{
+            "name": "Copeiro"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 7,
+        "fields":{
+            "name": "Camareira"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 8,
+        "fields":{
+            "name": "Jardineiro"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 9,
+        "fields":{
+            "name": "Piscineiro"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 10,
+        "fields":{
+            "name": "Motorista"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 11,
+        "fields":{
+            "name": "Motoboy"
+        }
+    },
+
+    {
+        "model": "website.service",
+        "pk": 12,
+        "fields":{
+            "name": "Garagista"
+        }
+    }
+]
