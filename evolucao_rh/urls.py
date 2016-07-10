@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^budget$', views.budget, name='budget'),
     url(r'^join_us$', views.join_us, name='join_us'),
     url(r'^contact$', views.contact, name='contact'),
+    url(r'^new_budget$', views.new_budget, name='new_budget'),
 ]
