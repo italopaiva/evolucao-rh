@@ -59,7 +59,7 @@
                                     <input type="text" class="search-form" autocomplete="off" placeholder="Pesquise aqui">
                                     <i class="fa fa-search"></i>
                                 </form>
-                           </div>
+                            </div>
                        </div>
                     </div>
                 </div>
@@ -80,12 +80,14 @@
 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'us_who' %}">Quem somos</a></li>
-                        <li><a href="{% url 'services' %}">Serviços</a></li>
-                        <li><a href="{% url 'budget' %}">Orçamentos</a></li>
-                        <li><a href="{% url 'join_us' %}">Trabalhe conosco</a></li>
-                        <li><a href="{% url 'contact' %}">Fale conosco</a></li>
+                        {% block nav-links %}
+                            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'us_who' %}">Quem somos</a></li>
+                            <li><a href="{% url 'services' %}">Serviços</a></li>
+                            <li><a href="{% url 'budget' %}">Orçamentos</a></li>
+                            <li><a href="{% url 'join_us' %}">Trabalhe conosco</a></li>
+                            <li><a href="{% url 'contact' %}">Fale conosco</a></li>
+                        {% endblock %}
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -179,7 +181,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2016 <a target="_blank" href="https://www.facebook.com/Evolu%C3%A7%C3%A3o-Consultoria-e-RH-1051171778261772/?fref=ts" title="Evolução COnsultoria e RH">Evolução Consultoria e RH</a>. All Rights Reserved.
+                    &copy; 2016 <a target="_blank" href="https://www.facebook.com/Evolu%C3%A7%C3%A3o-Consultoria-e-RH-1051171778261772/?fref=ts" title="Evolução COnsultoria e RH">Evolução Consultoria e RH</a>. By <a target="_blank" href="https://github.com/italopaiva">Ítalo Paiva</a>.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
@@ -188,6 +190,7 @@
                         <li><a href="{% url 'budget' %}">Orçamento</a></li>
                         <li><a href="{% url 'join_us' %}">Trabalhe conosco</a></li>
                         <li><a href="{% url 'contact' %}">Fale conosco</a></li>
+                        <li><a href="{% url 'login' %}"><i class='fa fa-sign-in'></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -200,5 +203,8 @@
     <script src="{% static 'js/jquery.isotope.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/wow.min.js' %}"></script>
+
+    {% block body-javascript %}
+    {% endblock %}
 </body>
 </html>
