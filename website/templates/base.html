@@ -93,6 +93,19 @@
 
     </header><!--/header-->
 
+    <div class="row">
+      {% block flash-messages %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-dismissible alert-{{message.tags}}">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p align="center"><strong>{{message}}</strong></p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+    </div>
+
     {% block page-content %}
     {% endblock %}
 
@@ -166,12 +179,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2016 <a target="_blank" href="" title="Evolução COnsultoria e RH">Evolução Consultoria e RH</a>. All Rights Reserved.
+                    &copy; 2016 <a target="_blank" href="https://www.facebook.com/Evolu%C3%A7%C3%A3o-Consultoria-e-RH-1051171778261772/?fref=ts" title="Evolução COnsultoria e RH">Evolução Consultoria e RH</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'services' %}">Serviços</a></li>
+                        <li><a href="{% url 'budget' %}">Orçamento</a></li>
                         <li><a href="{% url 'join_us' %}">Trabalhe conosco</a></li>
                         <li><a href="{% url 'contact' %}">Fale conosco</a></li>
                     </ul>
