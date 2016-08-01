@@ -1,5 +1,58 @@
 {% extends 'admin_base.html' %}
 
 {% block page-content %}
-    <h2>ADMIN BUDGET</h2>
-{% endblock %}
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="accordion">
+      <h2 class="text-center">Orçamentos solicitados:</h2>
+
+      <div class="panel-group" id="accordion1">
+      {% for budget, services in budgets %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#content_{{budget.pk}}">
+                {{budget.requester}} - {{budget.date}}
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </h3>
+          </div>
+          <div id="content_{{budget.pk}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-5 col-sm-12">
+                  <h4>Dados do solicitante:</h4>
+                  <ul>
+                    <li><b>Data</b>: {{budget.date}}</li>
+                    <li><b>Solicitante</b>: {{budget.requester}}</li>
+                    <li><b>E-mail</b>: {{budget.requester_email}}</li>
+                    <li><b>Telefone</b>: {{budget.requester_phone}}</li>
+                    <li><b>Endereço</b>: {{budget.requester_address}}</li>
+                    <li><b>Mensagem</b>: {{budget.message}}</li>
+                  </ul>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                  <h4>Serviços solicitados:</h4>
+                  <ul>
+                    {% for budget_service in services %}
+                      <li>
+                        <b>{{budget_service.service.name}}</b>: {{budget_service.pretty_quantity}}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                  <a href="{% url 'budget_answered' budget.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Já atendido!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div><!--/#accordion1-->
+    </div>
+  </div>
+  </div>
+  </div>
+  {% endblock %}

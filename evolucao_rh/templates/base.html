@@ -46,10 +46,21 @@
         <div class="top-bar">
             <div class="container">
                 <div class="row">
+                    {% if user.is_authenticated %}
+                    <div class="col-sm-4 col-xs-4">
+                    {% else %}
                     <div class="col-sm-6 col-xs-4">
+                    {% endif %}
                         <div class="top-number"><p><i class="fa fa-phone-square"></i>  (61) 3578-1616 / (61) 8601-3300</p></div>
                     </div>
-                    <div class="col-sm-6 col-xs-8">
+                    {% if user.is_authenticated %}
+                    <div class="col-sm-4 col-xs-4">
+                        <div class="top-number"><p><i class="fa fa-user"></i> Logado como <b>{{ user.username}}</b> - <a href="{% url 'admin_home' %}">Painel do Administrador</a> </p></div>
+                    </div>
+                        <div class="col-sm-4 col-xs-4">
+                    {% else %}
+                        <div class="col-sm-6 col-xs-8">
+                    {% endif %}
                        <div class="social">
                             <ul class="social-share">
                                 <li><a href="https://www.facebook.com/Evolu%C3%A7%C3%A3o-Consultoria-e-RH-1051171778261772/?fref=ts"><i class="fa fa-facebook"></i></a></li>
@@ -75,7 +86,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img width="110px" height="80" src="{% static 'images/logo.png' %}" alt="logo"></a>
+                    <a class="navbar-brand" href="{% url 'home' %}"><img width="110px" height="80" src="{% static 'images/logo.png' %}" alt="logo"></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -190,7 +201,11 @@
                         <li><a href="{% url 'budget' %}">Orçamento</a></li>
                         <li><a href="{% url 'join_us' %}">Trabalhe conosco</a></li>
                         <li><a href="{% url 'contact' %}">Fale conosco</a></li>
-                        <li><a href="{% url 'login' %}"><i class='fa fa-sign-in'></i></a></li>
+                        {% if not user.is_authenticated %}
+                            <li><a href="{% url 'login' %}"><i class='fa fa-sign-in'></i></a></li>
+                        {% else %}
+                            <li><a href="{% url 'logout' %}"><i class='fa fa-sign-out'></i></a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

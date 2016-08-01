@@ -27,6 +27,7 @@ class Service(models.Model):
 
 class Budget(models.Model):
     date = models.DateTimeField(auto_now_add=True)
+    answered = models.BooleanField(default=False)
     requester = models.CharField(
         "Solicitante",
         max_length=50,
@@ -59,7 +60,20 @@ class Budget(models.Model):
     )
     message = models.TextField("Mensagem/Detalhes", blank=True)
 
+
 class BudgetService(models.Model):
     budget = models.ForeignKey(Budget)
     service = models.ForeignKey(Service)
     quantity = models.SmallIntegerField(validators=[validators.MaxValueValidator(11)])
+
+    def get_quantity(self):
+        quantity = ""
+        if self.quantity is 'None':
+            quantity = "Nenhum"
+        elif self.quantity is 11:
+            quantity = "Mais de 10"
+        else:
+            quantity = self.quantity
+        return quantity
+
+    pretty_quantity = property(get_quantity)

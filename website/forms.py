@@ -6,6 +6,7 @@ class NewBudgetForm(forms.ModelForm):
     class Meta:
         model = Budget
         fields = '__all__'
+        exclude = ['answered']
 
 def get_choices():
     choices = []
