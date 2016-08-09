@@ -1,6 +1,6 @@
 #coding=utf-8
 from django import forms
-from website.models import Budget, BudgetService
+from website.models import Budget, BudgetService, JoinUsRequest
 
 class NewBudgetForm(forms.ModelForm):
     class Meta:
@@ -30,3 +30,15 @@ class EmployeeBudgetForm(forms.Form):
     driver = forms.ChoiceField(label="Motorista", choices=get_choices(), widget=forms.Select(attrs={'class':'form-control'}))
     motoboy = forms.ChoiceField(label="Motoboy", choices=get_choices(), widget=forms.Select(attrs={'class':'form-control'}))
     parker = forms.ChoiceField(label="Garagista", choices=get_choices(), widget=forms.Select(attrs={'class':'form-control'}))
+
+class JoinUsForm(forms.ModelForm):
+    class Meta:
+        model = JoinUsRequest
+        fields = '__all__'
+        widgets = {
+            'resume': forms.FileInput(attrs={
+                'class': 'filestyle',
+                'data-buttonText': 'Selecionar Currículo',
+                'data-placeholder': 'Nenhum currículo selecionado',
+            })
+        }

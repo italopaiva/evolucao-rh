@@ -1,1 +1,29 @@
 {% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block page-content %}
+
+<section>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="center wow fadeInDown">
+        <h2>Faça parte da nossa equipe!</h2>
+        <p class="lead">Venha crescer com a gente! Envie logo abaixo o seu currículo:</p>
+      </div>
+      <form enctype="multipart/form-data" class="contact-form" method="POST" action="{% url 'join_us' %}">
+        {% csrf_token %}
+        <div class="row contact-wrap">
+          <div class="col-md-12 col-sm-12">
+            <br>
+            {% bootstrap_form form %}
+            <div class="form-group">
+                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Enviar currículo</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

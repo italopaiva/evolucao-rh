@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.contrib import messages
 from website.models import Service, Budget, BudgetService
-from website.forms import NewBudgetForm, EmployeeBudgetForm
+from website.forms import NewBudgetForm, EmployeeBudgetForm, JoinUsForm
 
 def home(request):
     return TemplateResponse(request, "home.html")
@@ -30,8 +30,35 @@ def budget(request):
     }
     return TemplateResponse(request, "budget.html", context)
 
-def join_us(request):
-    return TemplateResponse(request, "join_us.html")
+class JoinUsView(View):
+    form = JoinUsForm
+    WHITE_LIST = ['application/pdf', 'application/msword']
+
+    def get(self, request):
+        context = {'form': self.form()}
+        return TemplateResponse(request, "join_us.html", context)
+
+    def post(self, request):
+        form = self.form(request.POST, request.FILES)
+        if form.is_valid():
+
+            if request.FILES['resume'].content_type in self.WHITE_LIST:
+                form.save()
+                msg_level = messages.SUCCESS
+                msg = u'Currículo enviado com sucesso, %s!' % request.POST['name']
+                response = HttpResponseRedirect(reverse('join_us'))
+            else:
+                msg_level = messages.ERROR
+                msg = u'Formato do currículo inválido. Submeta um arquivo \'.PDF\' ou \'.DOC\'.'
+                context = {'form': form}
+                response = TemplateResponse(request, "join_us.html", context)
+        else:
+            context = {'form': form}
+            msg_level = messages.ERROR
+            msg = u'Cheque os dados informados.'
+            response = TemplateResponse(request, "join_us.html", context)
+        messages.add_message(request, msg_level, msg)
+        return response
 
 def contact(request):
     return TemplateResponse(request, "contact.html")

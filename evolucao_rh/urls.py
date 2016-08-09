@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^services$', views.services, name='services'),
     url(r'^we$', views.we, name='us_who'),
     url(r'^budget$', views.budget, name='budget'),
-    url(r'^join_us$', views.join_us, name='join_us'),
+    url(r'^join_us$', views.JoinUsView.as_view(), name='join_us'),
     url(r'^contact$', views.contact, name='contact'),
     url(r'^new_budget$', views.NewBudgetView.as_view(), name='new_budget'),
 ]

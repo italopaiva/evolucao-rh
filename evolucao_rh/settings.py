@@ -130,3 +130,5 @@ MESSAGE_TAGS = {
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/administration/'
+
+MEDIA_ROOT = '/home/italopaiva/'

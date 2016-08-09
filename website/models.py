@@ -77,3 +77,36 @@ class BudgetService(models.Model):
         return quantity
 
     pretty_quantity = property(get_quantity)
+
+
+class JoinUsRequest(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(
+        "Nome",
+        max_length=50,
+        validators=[
+            validators.RegexValidator(
+                r'^[a-zA-ZáéíóúàâêôãõüçÁÉÍÓÚÀÂÊÔÃÕÜÇ ]+$',
+                "Ops, este não é um nome válido. Utilize somente caracteres alfabéticos."
+            )
+        ],
+        blank=False
+    )
+    email = models.EmailField("E-mail", blank=False)
+    phone = models.CharField(
+        "Telefone",
+        max_length=15,
+        help_text="Use somente números.",
+        validators=[
+            validators.RegexValidator(
+                r'^[0-9\s+]+$',
+                "Ops, este não é um número válido. Utilize somente números."
+            )
+        ],
+        blank=False
+    )
+    resume = models.FileField(
+        "Currículo",
+        help_text="Submeta aqui o seu currículo em '.PDF' ou '.DOC'.",
+        upload_to='uploads/resumes/%Y/%m/%d/'
+    )
