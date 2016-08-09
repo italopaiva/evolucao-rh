@@ -81,6 +81,7 @@ class BudgetService(models.Model):
 
 class JoinUsRequest(models.Model):
     date = models.DateTimeField(auto_now_add=True)
+    answered = models.BooleanField(default=False)
     name = models.CharField(
         "Nome",
         max_length=50,

@@ -34,6 +34,7 @@ class EmployeeBudgetForm(forms.Form):
 class JoinUsForm(forms.ModelForm):
     class Meta:
         model = JoinUsRequest
+        exclude = ['answered']
         fields = '__all__'
         widgets = {
             'resume': forms.FileInput(attrs={

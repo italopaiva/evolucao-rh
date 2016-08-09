@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -131,4 +132,5 @@ MESSAGE_TAGS = {
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/administration/'
 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/italopaiva/'

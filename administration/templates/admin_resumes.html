@@ -1,0 +1,51 @@
+{% extends 'admin_base.html' %}
+{% load staticfiles %}
+
+{% block page-content %}
+  <div class="container">
+  <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="accordion">
+      <h2 class="text-center">Currículos enviados:</h2>
+
+      <div class="panel-group" id="accordion1">
+      {% for resume in resumes %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#resume_{{resume.pk}}">
+                {{resume.name}} - {{resume.date}}
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </h3>
+          </div>
+          <div id="resume_{{resume.pk}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-5 col-sm-12">
+                  <h4>Dados do solicitante:</h4>
+                  <ul>
+                    <li><b>Data</b>: {{resume.date}}</li>
+                    <li><b>Nome</b>: {{resume.name}}</li>
+                    <li><b>E-mail</b>: {{resume.email}}</li>
+                    <li><b>Telefone</b>: {{resume.phone}}</li>
+                    <li><a href="{{ MEDIA_URL }}{{resume.resume}}" class="btn btn-info"><i class="fa fa-download"></i> Baixar currículo</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                  <a href="{% url 'resume_answered' resume.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Já respondido!</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div><!--/#accordion1-->
+    </div>
+  </div>
+  </div>
+  </div>
+  <br>
+  <br>
+  {% endblock %}

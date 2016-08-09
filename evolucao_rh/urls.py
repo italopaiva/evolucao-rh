@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 from website import views
 
 urlpatterns = [
@@ -30,4 +32,4 @@ urlpatterns = [
     url(r'^join_us$', views.JoinUsView.as_view(), name='join_us'),
     url(r'^contact$', views.contact, name='contact'),
     url(r'^new_budget$', views.NewBudgetView.as_view(), name='new_budget'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
