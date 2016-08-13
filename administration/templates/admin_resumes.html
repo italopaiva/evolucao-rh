@@ -3,10 +3,17 @@
 
 {% block page-content %}
   <div class="container">
+    <br>
+    {% block page-buttons %}
+    <a href="{% url 'answered_resume' %}" class="btn btn-warning">Currículos respondidos</a>
+    {% endblock %}
   <div class="row">
   <div class="col-md-12 col-sm-12">
     <div class="accordion">
+
+      {% block page-main-title %}
       <h2 class="text-center">Currículos enviados:</h2>
+      {% endblock %}
 
       <div class="panel-group" id="accordion1">
       {% for resume in resumes %}
@@ -33,8 +40,9 @@
                   </ul>
                 </div>
                 <div class="col-md-2 col-sm-12">
+                  {% block resume-options %}
                   <a href="{% url 'resume_answered' resume.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Já respondido!</a>
-
+                  {% endblock %}
                 </div>
               </div>
             </div>

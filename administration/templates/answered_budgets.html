@@ -1,0 +1,13 @@
+{% extends 'admin_budget.html' %}
+
+{% block page-buttons %}
+    <a href="{% url 'admin_budget' %}" class="btn btn-warning">Orçamentos não-atendidos</a>
+{% endblock %}
+
+{% block page-main-title %}
+    <h2 class="text-center">Orçamentos atendidos:</h2>
+{% endblock  %}
+
+{% block budget-options %}
+    <h2><span class="label label-success">Já atendido.</span></h2>
+{% endblock %}

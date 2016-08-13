@@ -1,0 +1,16 @@
+[
+    {
+        "model": "administration.company",
+        "pk": 1,
+        "fields":{
+            "name": "Evolução Consultoria e RH",
+            "owner": "André Ricardo",
+            "address": "QS 09 Rua 122 Lote 08 sala 208 Ed. Garcia - Areal/Águas Claras - DF",
+            "phones": "(61) 3578-1616 / (61) 8601-3300",
+            "email": "evolucaoconsultorrh@gmail.com",
+            "description": "A Evolução Consultoria e RH tem uma vasta experiência no mercado, nosso foco de atuação é atender a condomínios (residenciais, comerciais ou mistos) e a todos aqueles que necessitem desses serviços especializados, tais como: recepção, agente patrimonial, copa, serviços gerais, zeladoria, manutenção de piscinas, jardinagem, assessoria jurídica, e serviço de entregas 'malotes'. Oferecemos a mão de obra especializada, realizando a seleção, treinamento, contratação e locação da mão de obra, estando apta a fornecer ao condomínio os serviços necessários para o perfeito funcionamento e operação das atividades requeridas pelos nossos clientes, de forma integrada e focando na gestão, onde cuidamos de todas as áreas simultaneamente, com um custo e benefício acessível. Nossa intenção inicial é que conheça nosso trabalho. Havendo interesse, estamos à disposição para uma visita e, assim, com base na avaliação das necessidades, passamos uma proposta comercial.",
+            "facebook_page": "https://www.facebook.com/Evolu%C3%A7%C3%A3o-Consultoria-e-RH-1051171778261772/?fref=ts",
+            "maps_url": "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJG2jN9rwtWpMRPCgem1IX4pM&key=AIzaSyC8ppC3kqjTTp1VocTGDMRKxk1Mt_thedI"
+        }
+    }
+]

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-5 text-center">
                     <div class="gmap">
-                        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJG2jN9rwtWpMRPCgem1IX4pM&key=AIzaSyC8ppC3kqjTTp1VocTGDMRKxk1Mt_thedI" allowfullscreen></iframe>
+                        <iframe width="600" height="450" frameborder="0" style="border:0" src="{{ company.maps_url }}" allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -20,11 +20,10 @@
                         <li class="col-sm-6">
                             <address>
                                 <center><h4>Sede</h4></center>
-                                <h5>André Ricardo</h5>
-                                <p>QS 09 Rua 122 Lote 08 sala 208 <br>
-                                   Ed. Garcia - Areal/Águas Claras - DF</p>
-                                <p><b>Telefone:</b> (61) 3578-1616 / (61) 8601-3300 <br>
-                                <b>E-mail:</b> evolucaoconsultorrh@gmail.com</p>
+                                <h5>{{ company.owner }}</h5>
+                                <p> {{ company.address }} </p>
+                                <p><b>Telefone:</b> {{ company.phones }} <br>
+                                <b>E-mail:</b> {{ company.email }} </p>
                             </address>
                         </li>
                         <li class="col-sm-6">

@@ -3,6 +3,8 @@
 {% block page-title %}Evolução RH - Administração{% endblock %}
 
 {% block nav-links %}
+    <li class="active"><a href="{% url 'admin_home' %}">Dados da empresa</a></li>
+    <li class="active"><a href="{% url 'admin_start_page' %}">Configurar página inicial</a></li>
     <li class="active"><a href="{% url 'admin_budget' %}">Orçamentos</a></li>
     <li class="active"><a href="{% url 'admin_resumes' %}">Currículos</a></li>
     <li class="active"><a href="{% url 'logout' %}"><i class='fa fa-sign-out'></i> SAIR</a></li>

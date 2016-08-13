@@ -1,0 +1,46 @@
+{% extends 'admin_base.html' %}
+{% load bootstrap3 %}
+
+{% block page-content %}
+
+<section>
+  <div class="container">
+    <div class="center wow fadeInDown">
+      <h2>Atualizar página inicial</h2>
+      <p class="lead">Aqui você pode atualizar as fotos que aparecerão na sua página inicial.</p>
+    </div>
+
+    <form enctype="multipart/form-data" method="POST" action="{% url 'admin_start_page' %}">
+      {% csrf_token %}
+      <div class="center row">
+        <div class="col-md-4 col-sm-12">
+          <h3> Foto 1</h3>
+          {% bootstrap_field form.title1 %}
+          {% bootstrap_field form.description1 %}
+          {% bootstrap_field form.pic1 %}
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h3> Foto 2</h3>
+          {% bootstrap_field form.title2 %}
+          {% bootstrap_field form.description2 %}
+          {% bootstrap_field form.pic2 %}
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h3> Foto 3</h3>
+          {% bootstrap_field form.title3 %}
+          {% bootstrap_field form.description3 %}
+          {% bootstrap_field form.pic3 %}
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="form-group">
+            <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Atualizar fotos</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

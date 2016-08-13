@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.core import validators
 from django.db import models
 
+
 class Service(models.Model):
     name = models.CharField("Serviço", max_length=100)
 
@@ -29,7 +30,7 @@ class Budget(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     answered = models.BooleanField(default=False)
     requester = models.CharField(
-        "Solicitante",
+        "Nome do solicitante",
         max_length=50,
         validators=[
             validators.RegexValidator(

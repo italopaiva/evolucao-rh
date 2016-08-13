@@ -1,0 +1,13 @@
+{% extends 'admin_resumes.html' %}
+
+{% block page-buttons %}
+    <a href="{% url 'admin_resumes' %}" class="btn btn-warning">Currículos não-respondidos</a>
+{% endblock %}
+
+{% block page-main-title %}
+    <h2 class="text-center">Currículos respondidos:</h2>
+{% endblock  %}
+
+{% block resume-options %}
+    <h2><span class="label label-success">Já respondido.</span></h2>
+{% endblock %}

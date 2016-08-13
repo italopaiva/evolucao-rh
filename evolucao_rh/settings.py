@@ -66,6 +66,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'administration.context_processors.company_processor',
+                'administration.context_processors.pictures_processor',
             ],
         },
     },

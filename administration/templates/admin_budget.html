@@ -2,10 +2,18 @@
 
 {% block page-content %}
   <div class="container">
+  <br>
+
+  {% block page-buttons %}
+    <a href="{% url 'answered_budgets' %}" class="btn btn-warning">Orçamentos atendidos</a>
+  {% endblock  %}
   <div class="row">
   <div class="col-md-12 col-sm-12">
     <div class="accordion">
+
+      {% block page-main-title %}
       <h2 class="text-center">Orçamentos solicitados:</h2>
+      {% endblock  %}
 
       <div class="panel-group" id="accordion1">
       {% for budget, services in budgets %}
@@ -43,7 +51,9 @@
                   </ul>
                 </div>
                 <div class="col-md-2 col-sm-12">
-                  <a href="{% url 'budget_answered' budget.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Já atendido!</a>
+                  {% block budget-options %}
+                    <a href="{% url 'budget_answered' budget.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Já atendido!</a>
+                  {% endblock  %}
                 </div>
               </div>
             </div>
